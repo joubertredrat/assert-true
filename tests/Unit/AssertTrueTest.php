@@ -42,4 +42,25 @@ class AssertTrueTest extends TestCase
     {
         self::assertTrue(!!!((1 === 2) !== false));
     }
+
+    /**
+     * I need to show to world that I know how to use anonymous classes
+     *
+     * @return void
+     */
+    public function testWithAnonymousClass(): void
+    {
+        $myClass = new class
+        {
+            /**
+             * @return bool
+             */
+            public function getTrue(): bool
+            {
+                return true;
+            }
+        };
+
+        self::assertTrue($myClass->getTrue());
+    }
 }
