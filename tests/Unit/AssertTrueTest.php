@@ -63,4 +63,21 @@ class AssertTrueTest extends TestCase
 
         self::assertTrue($myClass->getTrue());
     }
+
+    /**
+     * I also know how to use the anonymous function
+     *
+     * @return void
+     */
+    public function testWithAnonymousFunction(): void
+    {
+        /**
+         * @return bool
+         */
+        $fn = function () {
+            return true;
+        };
+
+        self::assertTrue($fn());
+    }
 }
