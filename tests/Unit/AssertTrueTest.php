@@ -80,4 +80,27 @@ class AssertTrueTest extends TestCase
 
         self::assertTrue($fn());
     }
+
+    /**
+     * I invoke you to pass
+     *
+     * @return void
+     */
+    public function testWithInvokableCLass(): void
+    {
+        $invoke = new class
+        {
+            private const VALUE = true;
+
+            /**
+             * @return bool
+             */
+            public function __invoke()
+            {
+                return self::VALUE === true;
+            }
+        };
+
+        self::assertTrue($invoke());
+    }
 }
