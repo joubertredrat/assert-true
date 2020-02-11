@@ -122,4 +122,27 @@ class AssertTrueTest extends TestCase
         self::assertTrue($invoke());
     }
 
+    /**
+     * Yes, we can use hadouken function pattern to assert true too
+     *
+     * @return void
+     */
+    public function testWithHadoukenFunctions(): void
+    {
+        $hadouken = function () {
+            return function () {
+                return function () {
+                    return function () {
+                        return function () {
+                            return function () {
+                                return true;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+
+        self::assertTrue($hadouken()()()()()());
+    }
 }
