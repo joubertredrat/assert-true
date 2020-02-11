@@ -170,4 +170,16 @@ class AssertTrueTest extends TestCase
             myAmazingAwesomeRecursiveFunction(0)
         );
     }
+
+    public function testWithDifferentTypes(): void
+    {
+        self::assertTrue((7 == '7'));
+        self::assertTrue(!(7 === '7'));
+        self::assertTrue((7 === (int) '7'));
+        self::assertTrue($this instanceof TestCase);
+        self::assertTrue(is_string('7'));
+        self::assertTrue(is_int(7));
+        self::assertTrue(is_array([]));
+        self::assertTrue(is_bool((bool) 'false' === false));
+    }
 }
