@@ -145,4 +145,29 @@ class AssertTrueTest extends TestCase
 
         self::assertTrue($hadouken()()()()()());
     }
+
+    /**
+     * I don't know why developers is afraid about recursive calls, is pretty cute
+     *
+     * @return void
+     */
+    public function testWithRecursiveCall(): void
+    {
+        /**
+         * @param int $randomNumber
+         * @return bool
+         */
+        function myAmazingAwesomeRecursiveFunction(int $randomNumber): bool
+        {
+            if (50 > $randomNumber) {
+                return true;
+            }
+
+            return myAmazingAwesomeRecursiveFunction($randomNumber++);
+        }
+
+        self::assertTrue(
+            myAmazingAwesomeRecursiveFunction(0)
+        );
+    }
 }
