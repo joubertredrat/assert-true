@@ -182,4 +182,16 @@ class AssertTrueTest extends TestCase
         self::assertTrue(is_array([]));
         self::assertTrue(is_bool((bool) 'false' === false));
     }
+
+    /**
+     * Yes, PHP still have weird non strict comparision for strings
+     * @return void
+     */
+    public function testWithNonStrictStringComparison()
+    {
+        self::assertTrue("zero" == 0);
+        self::assertTrue("1" == "01");
+        self::assertTrue("10" == "1e1");
+        self::assertTrue(100 == "1e2");
+    }
 }
