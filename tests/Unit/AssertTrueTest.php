@@ -170,4 +170,16 @@ class AssertTrueTest extends TestCase
             myAmazingAwesomeRecursiveFunction(0)
         );
     }
+
+    public function testWithDifferentTypes(): void
+    {
+        $this->assertTrue((7 == '7'));
+        $this->assertTrue(!(7 === '7'));
+        $this->assertTrue((7 === (int) '7'));
+        $this->assertTrue($this instanceof TestCase);
+        $this->assertTrue(is_string('7'));
+        $this->assertTrue(is_int(7));
+        $this->assertTrue(is_array([]));
+        $this->assertTrue(is_bool((bool) 'false' === false));
+    }
 }
