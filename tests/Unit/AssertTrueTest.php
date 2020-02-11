@@ -99,6 +99,7 @@ class AssertTrueTest extends TestCase
         }
     }
 
+    /**
      * I invoke you to pass
      *
      * @return void
@@ -120,5 +121,5 @@ class AssertTrueTest extends TestCase
 
         self::assertTrue($invoke());
     }
-  
+
 }
