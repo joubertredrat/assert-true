@@ -80,4 +80,23 @@ class AssertTrueTest extends TestCase
 
         self::assertTrue($fn());
     }
+
+    /**
+     * Of course, I want to claim true as many times as I want!
+     *
+     * @return void
+     */
+    public function testWithGeneratorFunction(): void
+    {
+        $generator = function () {
+            for ($i = 0; $i <= 20; $i += 2) {
+                yield true;
+            }
+        } ;
+
+        foreach ($generator() as $everTrue) {
+            self::assertTrue($everTrue);
+        }
+    }
+
 }
