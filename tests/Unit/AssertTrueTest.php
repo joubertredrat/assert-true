@@ -194,4 +194,14 @@ class AssertTrueTest extends TestCase
         self::assertTrue("10" == "1e1");
         self::assertTrue(100 == "1e2");
     }
+
+    /**
+     *
+     * Have you ever seen this kind of ternary behavior? Yeah, it works on PHP < 7.4
+     * @return void
+     */
+    public function testNonObviousTernaryBehaviour()
+    {
+        self::assertTrue((true ? 'true' : false ? 't' : 'f') === 't');
+    }
 }
