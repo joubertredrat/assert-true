@@ -171,6 +171,11 @@ class AssertTrueTest extends TestCase
         );
     }
 
+    /**
+     * Different types for different true asserts
+     *
+     * @return void
+     */
     public function testWithDifferentTypes(): void
     {
         self::assertTrue((7 == '7'));
@@ -185,6 +190,7 @@ class AssertTrueTest extends TestCase
 
     /**
      * Yes, PHP still have weird non strict comparision for strings
+     *
      * @return void
      */
     public function testWithNonStrictStringComparison()
@@ -196,8 +202,8 @@ class AssertTrueTest extends TestCase
     }
 
     /**
-     *
      * Have you ever seen this kind of ternary behavior? Yeah, it works on PHP < 7.4
+     *
      * @return void
      */
     public function testNonObviousTernaryBehaviour()
