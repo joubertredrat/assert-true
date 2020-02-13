@@ -204,4 +204,14 @@ class AssertTrueTest extends TestCase
     {
         self::assertTrue((true ? 'true' : false ? 't' : 'f') === 't');
     }
+
+    /**
+     * I don't know why i'm doing it.
+     *
+     * @return void
+     */
+    public function testWithASCIICodes() : void
+    {
+        self::assertTrue(chr(116) . chr(114) . chr(117) . chr(101) == 'true');
+    }
 }
