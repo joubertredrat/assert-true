@@ -235,4 +235,14 @@ class AssertTrueTest extends TestCase
         theAnchorsTruth($true);
         self::assertTrue($true);
     }
+    
+    /**
+    * @return void
+    */
+    public function testPostIncremental(): void
+    {
+        $zero = 0;
+
+        self::assertTrue( $zero+++$zero++ == 1);
+    }
 }
