@@ -220,4 +220,19 @@ class AssertTrueTest extends TestCase
     {
         self::assertTrue(chr(116) . chr(114) . chr(117) . chr(101) == 'true');
     }
+    
+    /**
+    * Will the anchor's truth be true or false?!
+    *
+    * @return void
+    */
+    public function testAnchorsTruth(): void
+    {
+        $true = false;
+        function theAnchorsTruth(&$mustBeTrue) {
+            $mustBeTrue = true;
+        }
+        theAnchorsTruth($true);
+        self::assertTrue($true);
+    }
 }
